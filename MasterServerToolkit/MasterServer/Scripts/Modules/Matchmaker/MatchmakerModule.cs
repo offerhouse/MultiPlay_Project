@@ -80,7 +80,7 @@ namespace MasterServerToolkit.MasterServer
             server.RegisterMessageHandler((short)MstMessageCodes.GetRegionsRequest, GetRegionsRequestHandler);
             server.RegisterMessageHandler((short)MstMessageCodes.Check_Player_In_Game, Check_Player_In_Game_Handler);
             server.RegisterMessageHandler((short)MstMessageCodes.Queue1v1, Queue1v1Handler);
-            //server.RegisterMessageHandler((short)MstMessageCodes.MakeMatchFinish, MakeMatchFinishHandler);
+            server.RegisterMessageHandler((short)MstMessageCodes.MakeMatchFinish, MakeMatchFinishHandler);
             server.RegisterMessageHandler((short)MstMessageCodes.Destroy_Room, Destroy_Room_Handler);
             server.RegisterMessageHandler((short)MstMessageCodes.Get_Room_Player_List, Get_Room_Player_List_Handler);
             server.RegisterMessageHandler((short)MstMessageCodes.Get_Player_Number_By_UserID, Get_Player_Number_By_UserID_Handler);
@@ -205,44 +205,17 @@ namespace MasterServerToolkit.MasterServer
             }
         }
 
-        private void MakeMatchFinishHandler()// (IIncomingMessage message) // Finish make exe, pick player join game
+        private void MakeMatchFinishHandler(IIncomingMessage message) // Finish make exe, pick player join game
         {
             Debug.Log("MakeMatchFinishHandler");
-            /// for Test 
-            ///             Direct to Editor
-            /// for test
-            RoomOptions room = new RoomOptions();
-            short OP_Code = (short)MstMessageCodes.Queue1v1;
-            room.OP_Code = OP_Code;
-            /// for Test 
-            ///             Direct to Editor
-            /// for test
 
-            //RoomOptions room = message.Deserialize(new RoomOptions());
-            //short OP_Code = room.OP_Code;
+            RoomOptions room = message.Deserialize(new RoomOptions());
+            short OP_Code = room.OP_Code;
 
             Battle_Room_Info Battle_Room_Info = new Battle_Room_Info();
             Battle_Room_Info.Room_ID = room.CustomOptions.AsShort("Room_ID");
             Battle_Room_Info.Room_IP = room.RoomIp;
             Battle_Room_Info.Room_Port = room.RoomPort;
-
-            /// for Test 
-            ///             Direct to Editor
-            /// for test
-            Battle_Room_Info.Room_ID = 0;
-            Battle_Room_Info.Room_IP = "192.168.0.100";
-            Battle_Room_Info.Room_Port = 7777;
-            room.CustomOptions.Set("Room_ID", 0);
-            room.RoomIp = "192.168.0.100";
-            room.RoomPort = 7777;
-            room.MaxConnections = 5;
-            room.Password = string.Empty;
-            room.AccessTimeoutPeriod = 10;
-            room.Region = string.Empty;
-
-            /// for Test 
-            ///              Direct to Editor
-            /// for test
 
             string Player_ID1 = null, Player_ID2 = null, Player_ID3 = null, Player_ID4 = null;
             IPeer Player_Peer1 = null, Player_Peer2 = null, Player_Peer3 = null, Player_Peer4 = null;
