@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "25620964318",
+    "project_id": "tdhell-631cc",
+    "storage_bucket": "tdhell-631cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25620964318:android:a20e309ae980a59389334f",
+        "android_client_info": {
+          "package_name": "com.OneMan.HellProtector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25620964318-epgjquq934lqlo4mjadruikdba7mhau3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOPhzCROUsyLciiZeGe2mCemSBaZVzGmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25620964318-epgjquq934lqlo4mjadruikdba7mhau3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
